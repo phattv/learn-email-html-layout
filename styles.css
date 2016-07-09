@@ -59,6 +59,7 @@ a {
     Margin-bottom: 12px;
 }
 
+
 /* One-column layout */
 .one-column .contents {
     text-align: left;
@@ -153,6 +154,7 @@ a {
     color: #85ab70;
 }
 
+
 /* Right sidebar layout */
 .right-sidebar {
     text-align: center;
@@ -180,4 +182,28 @@ a {
 }
 .right-sidebar a {
     color: #70bbd9;
+}
+
+
+/*Media Queries*/
+@media screen and (max-width: 400px) {
+    .two-column .column,
+    .three-column .column {
+        max-width: 100% !important;
+    }
+    .two-column img {
+        max-width: 100% !important;
+    }
+    .three-column img {
+        max-width: 50% !important;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 620px) {
+    .three-column .column {
+        max-width: 33% !important;
+    }
+    .two-column .column {
+        max-width: 50% !important;
+    }
 }
