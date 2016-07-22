@@ -1,189 +1,225 @@
 /* Basics */
+/* Zero the margins and padding on the body, table and table cells and zeroing any borders that would appear on linked images */
 body {
     margin: 0 !important;
     padding: 0;
     background-color: lightgray;
 }
+
 table {
     border-spacing: 0;
     font-family: sans-serif;
     color: #333333;
 }
+
 td {
     padding: 0;
 }
+
 img {
     border: 0;
 }
+
+/* Zero some unwanted padding in Android 4.4’s native mail client */
 div[style*="margin: 16px 0"] {
-    margin:0 !important;
+    margin: 0 !important;
 }
+
 .wrapper {
     width: 100%;
-    table-layout: fixed;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    table-layout: fixed; /* Ensure our centered content will actually be centered in Yahoo mail */
+    -webkit-text-size-adjust: 100%; /* Stop text resizing in a weird way on Windows Phones and iOS */
+    -ms-text-size-adjust: 100%; /* Stop text resizing in a weird way on Windows Phones and iOS */
 }
+
 .webkit {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 600px; /* Contain everything in Apple Mail 6 (and below) and Outlook 2011 */
+    margin: 0 auto; /* Centered in Yahoo mail */
 }
+
+/* 100% width on small screens, 600px max wide on large screens */
 .outer {
-    Margin: 0 auto;
+    margin: 0 auto;
     width: 100%;
     max-width: 600px;
 }
+
 .full-width-image img {
     width: 100%;
     max-width: 600px;
     height: auto;
 }
+
 .inner {
     padding: 10px;
 }
+
 p {
-    Margin: 0;
+    margin: 0;
 }
+
 a {
     color: #ee6a56;
     text-decoration: underline;
 }
+
+/* Avoid <h1> because Outlook.com has some h1, h2 and h3 styles that always override your styling */
 .h1 {
     font-size: 21px;
     font-weight: bold;
-    Margin-bottom: 18px;
+    margin-bottom: 18px;
 }
+
 .h2 {
     font-size: 18px;
     font-weight: bold;
-    Margin-bottom: 12px;
+    margin-bottom: 12px;
 }
-
 
 /* One-column layout */
 .one-column .contents {
     text-align: left;
 }
+
 .one-column p {
     font-size: 14px;
-    Margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* Two-column layout */
 .two-column {
-    text-align: center;
-    font-size: 0;
+    text-align: center; /* Two columns to float side by side on desktop, but stack in the centre on mobile */
+    font-size: 0; /* Get rid of any gaps between our columns inside this cell */
 }
+
 .two-column .column {
     width: 100%;
     max-width: 300px;
-    display: inline-block;
+    display: inline-block; /* Two columns to float side by side on desktop, but stack in the centre on mobile */
     vertical-align: top;
+    /* Each column acts as though it is a table cell using the HTML property valign="top".
+    Ensure that whatever you choose here matches the valign that you’ve set on your Outlook conditional table because Outlook doesn’t support vertical-align */
 }
+
 .contents {
     width: 100%;
 }
+
 .two-column .contents {
     font-size: 14px;
     text-align: left;
 }
+
 .two-column img {
     width: 100%;
     max-width: 280px;
     height: auto;
 }
+
 .two-column .text {
     padding-top: 10px;
 }
 
-
 /* Three column layout */
 .three-column {
     text-align: center;
-    font-size: 0;
+    font-size: 0; /* Get rid of any gaps between our columns inside this cell */
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
 .three-column .column {
     width: 100%;
     max-width: 200px;
     display: inline-block;
     vertical-align: top;
 }
+
 .three-column .contents {
     font-size: 14px;
     text-align: center;
 }
+
 .three-column img {
     width: 100%;
     max-width: 180px;
     height: auto;
 }
+
 .three-column .text {
     padding-top: 10px;
 }
-
 
 /* Two-column layout with 100px sidebar */
 /* Left sidebar layout */
 .left-sidebar {
     text-align: center;
-    font-size: 0;
+    font-size: 0; /* Get rid of any gaps between our columns inside this cell */
 }
+
 .left-sidebar .column {
     width: 100%;
     display: inline-block;
     vertical-align: middle;
 }
+
 .left-sidebar .left {
     max-width: 100px;
 }
+
 .left-sidebar .right {
     max-width: 500px;
 }
+
 .left-sidebar .img {
     width: 100%;
     max-width: 80px;
     height: auto;
 }
+
 .left-sidebar .contents {
     font-size: 14px;
     text-align: center;
 }
+
 .left-sidebar a {
     color: #85ab70;
 }
 
-
 /* Right sidebar layout */
 .right-sidebar {
     text-align: center;
-    font-size: 0;
+    font-size: 0; /* Get rid of any gaps between our columns inside this cell */
 }
+
 .right-sidebar .column {
     width: 100%;
     display: inline-block;
     vertical-align: middle;
 }
+
 .right-sidebar .left {
     max-width: 100px;
 }
+
 .right-sidebar .right {
     max-width: 500px;
 }
+
 .right-sidebar .img {
     width: 100%;
     max-width: 80px;
     height: auto;
 }
+
 .right-sidebar .contents {
     font-size: 14px;
     text-align: center;
 }
+
 .right-sidebar a {
     color: #70bbd9;
 }
-
 
 /*Media Queries*/
 @media screen and (max-width: 400px) {
@@ -191,9 +227,11 @@ a {
     .three-column .column {
         max-width: 100% !important;
     }
+
     .two-column img {
         max-width: 100% !important;
     }
+
     .three-column img {
         max-width: 50% !important;
     }
@@ -203,6 +241,7 @@ a {
     .three-column .column {
         max-width: 33% !important;
     }
+
     .two-column .column {
         max-width: 50% !important;
     }
