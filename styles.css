@@ -1,4 +1,4 @@
-/* Basics */
+/* BASICS */
 /* Zero the margins and padding on the body, table and table cells and zeroing any borders that would appear on linked images */
 body {
     margin: 0 !important;
@@ -76,7 +76,7 @@ a {
     margin-bottom: 12px;
 }
 
-/* One-column layout */
+/* ONE-COLUMN LAYOUT */
 .one-column .contents {
     text-align: left;
 }
@@ -86,7 +86,7 @@ a {
     margin-bottom: 10px;
 }
 
-/* Two-column layout */
+/* TWO-COLUMN LAYOUT */
 .two-column {
     text-align: center; /* Two columns to float side by side on desktop, but stack in the centre on mobile */
     font-size: 0; /* Get rid of any gaps between our columns inside this cell */
@@ -120,7 +120,7 @@ a {
     padding-top: 10px;
 }
 
-/* Three column layout */
+/* THREE-COLUMN LAYOUT */
 .three-column {
     text-align: center;
     font-size: 0; /* Get rid of any gaps between our columns inside this cell */
@@ -150,7 +150,7 @@ a {
     padding-top: 10px;
 }
 
-/* Two-column layout with 100px sidebar */
+/* TWO-COLUMN LAYOUT WITH (LEFT) 100px SIDEBAR */
 /* Left sidebar layout */
 .left-sidebar {
     text-align: center;
@@ -186,7 +186,7 @@ a {
     color: #85ab70;
 }
 
-/* Right sidebar layout */
+/* TWO-COLUMN LAYOUT WITH REVERSED (RIGHT) 100px SIDEBAR */
 .right-sidebar {
     text-align: center;
     font-size: 0; /* Get rid of any gaps between our columns inside this cell */
@@ -221,8 +221,10 @@ a {
     color: #70bbd9;
 }
 
-/*Media Queries*/
+/* MEDIA QUERIES */
 @media screen and (max-width: 400px) {
+
+    /* Columns appear at 100% the width of the viewport for anything up to 400px */
     .two-column .column,
     .three-column .column {
         max-width: 100% !important;
@@ -232,11 +234,13 @@ a {
         max-width: 100% !important;
     }
 
+    /* Limit our three-column images to 50% wide so that they don’t blow up too large */
     .three-column img {
         max-width: 50% !important;
     }
 }
 
+/* Make the two- and three-column layouts appear as they would on desktop, but shrunk down to fit */
 @media screen and (min-width: 401px) and (max-width: 620px) {
     .three-column .column {
         max-width: 33% !important;
